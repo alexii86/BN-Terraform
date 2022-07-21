@@ -103,6 +103,18 @@ resource "azurerm_network_security_group" "bn-sg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+
+ security_rule {
+    name                       = "BNEMS-Mgmt"
+    priority                   = 102
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "8443"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 }
 
 
